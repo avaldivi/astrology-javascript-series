@@ -20,9 +20,16 @@ export const meta: MetaFunction = () => {
 };
 
 const HomeWrapper = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+
+  h1 {
+    font-family: 'Pangolin', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+  }
 `;
 
 const SectionTitlesContainer = styled.div`

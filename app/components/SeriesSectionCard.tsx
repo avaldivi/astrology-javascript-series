@@ -9,12 +9,12 @@ const SeriesOuterContainer = styled.div`
   padding: 30px;
 `;
 
-const SeriesContainer = styled.div<{ rotate?: string }>`
+const SeriesContainer = styled.button<{ rotate?: string }>`
   border-radius: 100px;
-  height: 35px;
+  height: 65px;
   background-color: #dcccfd;
   border: 1px solid black;
-  padding: 20px;
+  padding: 5px;
   margin: 10px;
   width: 250px;
   display: flex;
@@ -29,7 +29,9 @@ const SeriesSectionCard = ({
 }: SeriesSectionCardProps) => {
   return (
     <SeriesOuterContainer>
-      <SeriesContainer rotate={degreeRotation}>{sectionTitle}</SeriesContainer>
+      <SeriesContainer as='a' href='/' rotate={degreeRotation}>
+        {sectionTitle}
+      </SeriesContainer>
     </SeriesOuterContainer>
   );
 };
