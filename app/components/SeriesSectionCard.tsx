@@ -1,38 +1,36 @@
 import React from 'react';
-import styles from './SeriesSectionCard.module.css';
+import { styled } from 'styled-components';
 
-interface SeriesSectionCardProps {}
+interface SeriesSectionCardProps {
+  degreeRotation: string;
+  sectionTitle: string;
+}
+const SeriesOuterContainer = styled.div`
+  padding: 30px;
+`;
 
-const SeriesSectionCard = () => {
-  const inlineStyle: React.CSSProperties = {
-    transform: 'rotate(-0.05turn)',
-  };
+const SeriesContainer = styled.div<{ rotate?: string }>`
+  border-radius: 100px;
+  height: 35px;
+  background-color: #dcccfd;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: ${({ rotate }) => (rotate ? `rotate(${rotate}turn)` : null)};
+`;
 
+const SeriesSectionCard = ({
+  degreeRotation,
+  sectionTitle,
+}: SeriesSectionCardProps) => {
   return (
-    <div className={styles.seriesCard}>
-      <div className={styles.seriesTitleArea} style={inlineStyle}>
-        Signs
-      </div>
-      <div
-        className={styles.seriesTitleArea}
-        style={{
-          transform: 'rotate(0.03turn)',
-        }}
-      >
-        Planets
-      </div>
-      <div
-        className={styles.seriesTitleArea}
-        style={{
-          transform: 'rotate(-0.053turn)',
-        }}
-      >
-        Houses
-      </div>
-      <div className={styles.seriesTitleArea}>Aspects</div>
-      <div className={styles.seriesTitleArea}>Midpoints</div>
-      <div className={styles.seriesTitleArea}>Natal Chart</div>
-    </div>
+    <SeriesOuterContainer>
+      <SeriesContainer rotate={degreeRotation}>{sectionTitle}</SeriesContainer>
+    </SeriesOuterContainer>
   );
 };
 

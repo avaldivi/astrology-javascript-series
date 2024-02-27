@@ -9,11 +9,17 @@ import {
 } from '@remix-run/react';
 import { Analytics } from '@vercel/analytics/react';
 import type { LinksFunction } from '@vercel/remix';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ];
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #FFF1E1;
+  }
+`;
 
 export default function App() {
   return (
@@ -35,6 +41,7 @@ export default function App() {
             },
           }}
         >
+          <GlobalStyle />
           <Outlet />
         </ThemeProvider>
         <ScrollRestoration />
