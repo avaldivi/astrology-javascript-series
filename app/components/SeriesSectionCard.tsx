@@ -7,6 +7,19 @@ interface SeriesSectionCardProps {
 }
 const SeriesOuterContainer = styled.div`
   padding: 30px;
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Lucida Console', 'Courier New', monospace;
+  }
+
+  a:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: 900;
+    cursor: pointer;
+  }
 `;
 
 const SeriesContainer = styled.button<{ rotate?: string }>`
@@ -21,6 +34,12 @@ const SeriesContainer = styled.button<{ rotate?: string }>`
   justify-content: center;
   align-items: center;
   transform: ${({ rotate }) => (rotate ? `rotate(${rotate}turn)` : null)};
+
+  &:hover {
+    background-color: #bb9ef8;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px 2px #888888;
+  }
 `;
 
 const SeriesSectionCard = ({

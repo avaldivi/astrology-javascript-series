@@ -10,6 +10,7 @@ import ascendant from '../../images/ascendant-midpoint.png';
 import decendant from '../../images/descendant-midpoint.png';
 import midheaven from '../../images/midheaven-midpoint.png';
 import imum from '../../images/imum-coeli-midpoint.png';
+import { devices } from '../../utils/constants';
 import SeriesSectionCard from '~/components/SeriesSectionCard';
 
 export const meta: MetaFunction = () => {
@@ -20,26 +21,38 @@ export const meta: MetaFunction = () => {
 };
 
 const HomeWrapper = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: space-evenly;
+`;
+
+const PageTitleContainer = styled.div`
+  text-align: center;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  line-height: 70px;
 
   h1 {
-    font-family: 'Pangolin', sans-serif;
-    font-size: 2.5rem;
-    margin: 0;
+    font-family: 'Shrikhand', serif;
+    font-size: 50px;
+
+    @media only screen and ${devices.md} {
+      font-size: 75px;
+    }
   }
 `;
 
 const SectionTitlesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
+  max-width: 50%;
+  justify-content: center;
 `;
 
 const ImageAndSectionTitleContainer = styled.div`
   position: relative;
+  margin: 10px 0px;
 `;
 
 const ImageHover = styled.img<{
@@ -61,6 +74,15 @@ const ImageHover = styled.img<{
   `}
 `;
 
+const FooterArea = styled.div`
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+`;
+
 const Header = styled.h1<{
   $isError?: boolean;
 }>`
@@ -73,9 +95,13 @@ export default function Index() {
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
       <Header $isError={true}>Welcome</Header>
       <HomeWrapper>
-        <SectionTitlesContainer>
-          <h1>Astrology & Javascript Series</h1>
-        </SectionTitlesContainer>
+        <PageTitleContainer>
+          <h1>
+            🔮 Astrology <br />
+            <span>&amp;</span>
+            <br /> {`<`}Javascript{`/>`} Series
+          </h1>
+        </PageTitleContainer>
         <SectionTitlesContainer>
           <ImageAndSectionTitleContainer>
             <SeriesSectionCard degreeRotation='-0.01' sectionTitle='Signs' />
@@ -175,32 +201,9 @@ export default function Index() {
           <SeriesSectionCard degreeRotation='0.01' sectionTitle='Natal Chart' />
         </SectionTitlesContainer>
       </HomeWrapper>
-
-      <ul>
-        <li>
-          <a
-            target='_blank'
-            href='https://remix.run/tutorials/blog'
-            rel='noreferrer'
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target='_blank'
-            href='https://remix.run/tutorials/jokes'
-            rel='noreferrer'
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target='_blank' href='https://remix.run/docs' rel='noreferrer'>
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <FooterArea>
+        Made with ❤️ by <b>Celestial Doses</b>
+      </FooterArea>
     </div>
   );
 }
