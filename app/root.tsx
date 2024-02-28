@@ -41,7 +41,7 @@ export default function App() {
           theme={{
             colors: {
               primary: '#ff0000',
-              secondary: '#00ff00',
+              secondary: '#FFD200',
               tertiary: '#0000ff',
             },
           }}
