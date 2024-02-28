@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-interface SeriesSectionCardProps {
+interface SectionButtonProps {
   degreeRotation: string;
   sectionTitle: string;
 }
@@ -42,10 +42,10 @@ const SeriesContainer = styled.button<{ rotate?: string }>`
   }
 `;
 
-const SeriesSectionCard = ({
+const SectionButton = ({
   degreeRotation,
   sectionTitle,
-}: SeriesSectionCardProps) => {
+}: SectionButtonProps) => {
   return (
     <SeriesOuterContainer>
       <SeriesContainer as='a' href='/' rotate={degreeRotation}>
@@ -55,4 +55,4 @@ const SeriesSectionCard = ({
   );
 };
 
-export default SeriesSectionCard;
+export default SectionButton;
