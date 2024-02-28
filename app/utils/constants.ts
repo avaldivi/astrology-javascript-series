@@ -36,7 +36,7 @@ export const sectionAreas = [
     buttonRotation: '-0.01',
     hoverImages: [
       {
-        imagePosition: { top: '3px', left: '113px' },
+        imagePosition: { top: '3px', left: '100px' },
         imageSrc: signs,
         imageAltText: 'Twelve zodiac signs in a circular fashion',
       },

@@ -92,8 +92,18 @@ export default function Index() {
               <span>&amp;</span>
               <br /> {`<`}Javascript{`/>`} Series
             </h1>
-            <img src={sparkles} height='50px' width='150px' />
-            <img src={celestialDoses} height='100px' width='300px' />
+            <img
+              src={sparkles}
+              height='50px'
+              width='150px'
+              alt='Sparkle divider between header and logo'
+            />
+            <img
+              src={celestialDoses}
+              height='100px'
+              width='300px'
+              alt='Celestial Doses logo'
+            />
           </PageTitleContainer>
           <SectionTitlesContainer>
             {sectionAreas.map((section) => (
