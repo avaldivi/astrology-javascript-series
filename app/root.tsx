@@ -10,6 +10,7 @@ import {
 import { Analytics } from '@vercel/analytics/react';
 import type { LinksFunction } from '@vercel/remix';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { seriesContentImage } from '~/images';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
@@ -32,6 +33,22 @@ export default function App() {
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='twitter:card'
+          content='Astrology & Javascript Series focuses on learning foundational blocks of astrology while using tools within the Javascript ecosystem.'
+        />
+        <meta name='twitter:site' content='@driannavaldivi' />
+        <meta name='twitter:creator' content='@driannavaldivi' />
+        <meta
+          property='og:url'
+          content='https://astrology-javascript-series.vercel.app/'
+        />
+        <meta property='og:title' content='Astrology & Javascript Series' />
+        <meta
+          property='og:description'
+          content='Astrology & Javascript Series focuses on learning foundational blocks of astrology while using tools within the Javascript ecosystem.'
+        />
+        <meta property='og:image' content={seriesContentImage} />
         <Meta />
         <Links />
         {typeof document === 'undefined' ? '__STYLES__' : null}
