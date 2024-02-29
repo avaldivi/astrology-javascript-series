@@ -36,9 +36,10 @@ const Header = styled.h1`
 const PageWrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
 
-  @media only screen and ${devices.md} {
+  @media only screen and ${devices.lg} {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,12 +60,15 @@ const PageTitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 
   h1 {
     font-family: 'Shrikhand', serif;
     font-size: 50px;
     margin: 12px;
     line-height: 45px;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
 
     @media only screen and ${devices.md} {
       font-size: 75px;
