@@ -106,7 +106,7 @@ export const sectionAreas = [
     ],
   },
   {
-    sectionTitle: 'Sky Points',
+    sectionTitle: 'Critical Angles',
     buttonRotation: '-0.01',
     hoverImages: [
       {
