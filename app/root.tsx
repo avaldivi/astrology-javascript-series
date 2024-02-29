@@ -10,7 +10,6 @@ import {
 import { Analytics } from '@vercel/analytics/react';
 import type { LinksFunction } from '@vercel/remix';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { seriesContentImage } from '~/images';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
@@ -48,7 +47,12 @@ export default function App() {
           property='og:description'
           content='Astrology & Javascript Series focuses on learning foundational blocks of astrology while using tools within the Javascript ecosystem.'
         />
-        <meta property='og:image' content={seriesContentImage} />
+        <meta
+          property='og:image'
+          content={
+            'https://i.ibb.co/sbG30gZ/astrology-javascript-series-content-image.png'
+          }
+        />
         <Meta />
         <Links />
         {typeof document === 'undefined' ? '__STYLES__' : null}

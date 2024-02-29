@@ -11,7 +11,6 @@ import imum from './imum-coeli-midpoint.png';
 import natalChart from './natal-chart.svg';
 import sparkles from './sparkle-divider.svg';
 import celestialDoses from './celestial-doses-logo.svg';
-import seriesContentImage from './astrology-javascript-series-content-image.png';
 
 export {
   signs,
@@ -27,5 +26,4 @@ export {
   natalChart,
   sparkles,
   celestialDoses,
-  seriesContentImage,
 };
