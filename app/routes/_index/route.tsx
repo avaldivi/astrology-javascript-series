@@ -64,11 +64,8 @@ const PageTitleContainer = styled.div`
 
   h1 {
     font-family: 'Shrikhand', serif;
-    font-size: 50px;
     margin: 12px;
-    line-height: 45px;
-    margin-inline-start: 20px;
-    margin-inline-end: 20px;
+    line-height: 25px;
 
     @media only screen and ${devices.md} {
       font-size: 75px;
@@ -91,11 +88,14 @@ export default function Index() {
       <PageWrapper>
         <MainSectionWrapper>
           <PageTitleContainer>
-            <h1>
-              🔮 Astrology <br />
-              <span>&amp;</span>
-              <br /> {`<`}Javascript{`/>`} Series
-            </h1>
+            <div>
+              <h1>
+                🔮 Astrology <br />
+                <span>&amp;</span> <br />
+                {`<`}Javascript{`/>`} <br />
+                Series
+              </h1>
+            </div>
             <img
               src={sparkles}
               height='50px'
