@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from '@remix-run/react';
 import { styled, css } from 'styled-components';
 import SectionButton from './SectionButton';
 
@@ -17,6 +18,7 @@ type ImageProps = {
 };
 
 const ImageHover = styled.img<ImageProps>`
+  cursor: pointer;
   position: absolute;
   ${({ top, left, height, width, bottom, right }) => css`
     ${top && `top: ${top}`};
@@ -38,21 +40,32 @@ interface SectionAccessAreaProps {
   sectionTitle: string;
   buttonRotation: string;
   hoverImages: HoverImage[];
+  path?: string;
 }
 
 const SectionAccessArea = ({
   sectionTitle,
   buttonRotation,
   hoverImages,
+  path = '/',
 }: SectionAccessAreaProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const handleImgClick = () => {
+    navigate(path); // Change to your intended route
+  };
+
   return (
     <ImageAndSectionTitleContainer>
       <SectionButton
         degreeRotation={buttonRotation}
         sectionTitle={sectionTitle}
+        isHovered={isHovered}
       />
-      {hoverImages.map((hoverImage: HoverImage) => (
+      {hoverImages.map((hoverImage: HoverImage, key) => (
         <ImageHover
+          key={key}
           top={hoverImage.imagePosition?.top}
           bottom={hoverImage.imagePosition?.bottom}
           left={hoverImage.imagePosition?.left}
@@ -60,7 +73,10 @@ const SectionAccessArea = ({
           height={hoverImage.imagePosition?.height}
           width={hoverImage.imagePosition?.width}
           src={hoverImage?.imageSrc}
-          alt={hoverImage?.imageAltText}
+          alt={`Clickable ${hoverImage?.imageAltText} image`}
+          onClick={handleImgClick}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         />
       ))}
     </ImageAndSectionTitleContainer>

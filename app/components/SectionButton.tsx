@@ -1,9 +1,10 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 interface SectionButtonProps {
   degreeRotation: string;
   sectionTitle: string;
+  isHovered: boolean;
 }
 const SeriesOuterContainer = styled.div`
   padding: 30px;
@@ -22,7 +23,7 @@ const SeriesOuterContainer = styled.div`
   }
 `;
 
-const SeriesContainer = styled.button<{ rotate?: string }>`
+const SeriesContainer = styled.button<{ rotate?: string; isHovered: boolean }>`
   border-radius: 100px;
   height: 65px;
   background-color: #dcccfd;
@@ -40,15 +41,29 @@ const SeriesContainer = styled.button<{ rotate?: string }>`
     border: 2px solid black;
     box-shadow: 2px 2px 2px 2px #888888;
   }
+
+  ${({ isHovered }) =>
+    isHovered &&
+    css`
+      background-color: #bb9ef8;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px 2px #888888;
+    `}
 `;
 
 const SectionButton = ({
   degreeRotation,
   sectionTitle,
+  isHovered,
 }: SectionButtonProps) => {
   return (
     <SeriesOuterContainer>
-      <SeriesContainer as='a' href='/' rotate={degreeRotation}>
+      <SeriesContainer
+        as='a'
+        href='/'
+        rotate={degreeRotation}
+        isHovered={isHovered}
+      >
         {sectionTitle}
       </SeriesContainer>
     </SeriesOuterContainer>
