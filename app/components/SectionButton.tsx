@@ -5,6 +5,7 @@ interface SectionButtonProps {
   degreeRotation: string;
   sectionTitle: string;
   isHovered: boolean;
+  path?: string;
 }
 const SeriesOuterContainer = styled.div`
   padding: 30px;
@@ -23,7 +24,9 @@ const SeriesOuterContainer = styled.div`
   }
 `;
 
-const SeriesContainer = styled.button<{ rotate?: string; isHovered: boolean }>`
+const SeriesContainer = styled.button.withConfig({
+  shouldForwardProp: (prop) => !['isHovered'].includes(prop),
+})<{ rotate?: string; isHovered: boolean }>`
   border-radius: 100px;
   height: 65px;
   background-color: #dcccfd;
@@ -55,12 +58,13 @@ const SectionButton = ({
   degreeRotation,
   sectionTitle,
   isHovered,
+  path = '/',
 }: SectionButtonProps) => {
   return (
     <SeriesOuterContainer>
       <SeriesContainer
         as='a'
-        href='/'
+        href={path}
         rotate={degreeRotation}
         isHovered={isHovered}
       >
