@@ -62,6 +62,7 @@ const SectionAccessArea = ({
         degreeRotation={buttonRotation}
         sectionTitle={sectionTitle}
         isHovered={isHovered}
+        path={path}
       />
       {hoverImages.map((hoverImage: HoverImage, key) => (
         <ImageHover
