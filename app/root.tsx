@@ -20,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: #FFF1E1;
+  }
+
+  h1, h2 {
     font-family: "Shrikhand", serif;
     font-weight: 400;
     font-style: normal;
@@ -61,7 +64,7 @@ export default function App() {
         <ThemeProvider
           theme={{
             colors: {
-              primary: '#ff0000',
+              primary: '#DCCCFD',
               secondary: '#FFD200',
               tertiary: '#0000ff',
             },

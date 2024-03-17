@@ -33,6 +33,7 @@ export const devices = {
 export const sectionAreas = [
   {
     sectionTitle: 'Signs',
+    path: '/signs',
     buttonRotation: '-0.01',
     hoverImages: [
       {

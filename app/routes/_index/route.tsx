@@ -116,6 +116,7 @@ export default function Index() {
                 buttonRotation={section.buttonRotation}
                 sectionTitle={section.sectionTitle}
                 hoverImages={section.hoverImages}
+                path={section.path}
               />
             ))}
           </SectionTitlesContainer>
