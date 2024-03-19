@@ -1,6 +1,3 @@
-import { json } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
-import { createRemixStub } from '@remix-run/testing';
 import { render, screen, waitFor } from '@testing-library/react';
 import SectionButton from './SectionButton';
 
