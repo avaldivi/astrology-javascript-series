@@ -12,6 +12,17 @@ import natalChart from './natal-chart.svg';
 import sparkles from './sparkle-divider.svg';
 import celestialDoses from './celestial-doses-logo.svg';
 import Aries from './Aries.svg';
+import Taurus from './Taurus.svg';
+import Gemini from './Gemini.svg';
+import Cancer from './Cancer.svg';
+import Leo from './Leo.svg';
+import Virgo from './Virgo.svg';
+import Libra from './Libra.svg';
+import Scorpio from './Scorpio.svg';
+import Sagittarius from './Sagittarius.svg';
+import Capricorn from './Capricorn.svg';
+import Aquarius from './Aquarius.svg';
+import Pisces from './Pisces.svg';
 
 export {
   signs,
@@ -28,4 +39,15 @@ export {
   sparkles,
   celestialDoses,
   Aries,
+  Taurus,
+  Gemini,
+  Cancer,
+  Leo,
+  Virgo,
+  Libra,
+  Scorpio,
+  Sagittarius,
+  Capricorn,
+  Aquarius,
+  Pisces,
 };
