@@ -1,3 +1,4 @@
+import { useNavigate } from '@remix-run/react';
 import React from 'react';
 import { styled } from 'styled-components';
 
@@ -55,6 +56,7 @@ interface DetailCardProps {
 }
 
 export const DetailCard: React.FC<DetailCardProps> = ({ filteredSigns }) => {
+  const navigate = useNavigate();
   return (
     <SignsWrapper>
       {filteredSigns.map((sign) => {
@@ -65,7 +67,11 @@ export const DetailCard: React.FC<DetailCardProps> = ({ filteredSigns }) => {
               <img src={sign.imageSrc} height='150px' alt={sign.title} />
             </ImageContainer>
             <p>{sign.description}</p>
-            <Button>View More</Button>
+            <Button
+              onClick={() => navigate(`/signs/${sign.title.toLowerCase()}`)}
+            >
+              View More
+            </Button>
           </SignContainer>
         );
       })}
