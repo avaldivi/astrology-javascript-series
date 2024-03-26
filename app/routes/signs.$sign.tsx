@@ -5,6 +5,7 @@ import { useLoaderData, useSearchParams } from '@remix-run/react';
 import { Link } from '@remix-run/react';
 import { BreadcrumbArgs } from '~/components/PageBreadcrumb';
 import { findSignByTitle } from '~/utils/signs';
+import { devices, breakpoints } from '~/utils/constants';
 
 interface SignShowProps {}
 
@@ -24,10 +25,14 @@ const CardContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   background-color: ${({ theme }) => theme.colors.primary};
-  min-width: 200px;
   margin: 10px;
   border-radius: 10px;
   border: 2px solid ${({ theme }) => theme.colors.secondary};
+  width: 100%;
+
+  @media only screen and ${devices.xs} {
+    width: 100%;
+  }
 `;
 
 const SignContainer = styled.div`
@@ -38,8 +43,8 @@ const SignContainer = styled.div`
   padding: 20px;
   max-width: 500px;
 
-  p {
-    font-size: 20px;
+  @media only screen and ${devices.xs} and (max-width: ${breakpoints.sm}) {
+    width: 200px;
   }
 `;
 
@@ -134,7 +139,7 @@ const Sign: React.FC<SignShowProps> = () => {
           })}
         </DetailArea>
         <DetailArea>
-          <h2> Essential Dignities </h2>
+          <h2> Essential Dignities & Debilities </h2>
           {essentialDignities.map((essentialDignity) => {
             const [key, value] = Object.entries(essentialDignity)[0];
             return (

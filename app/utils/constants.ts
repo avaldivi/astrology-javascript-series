@@ -12,7 +12,7 @@ import {
   natalChart,
 } from '~/images';
 
-const breakpoints = {
+export const breakpoints = {
   xs: '320px',
   sm: '640px',
   md: '768px',

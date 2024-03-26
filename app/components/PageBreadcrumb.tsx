@@ -16,6 +16,7 @@ export interface BreadcrumbArgs {
 const StyledUl = styled.ul`
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   font-family: 'Lucida Console', 'Courier New', monospace;
   font-size: 30px;
   text-transform: capitalize;
