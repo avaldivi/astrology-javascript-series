@@ -13,6 +13,9 @@ import {
   Pisces,
 } from '~/images';
 
+export const findSignByTitle = (title?: string) =>
+  signs.filter((sign) => sign.title.toLowerCase() === title);
+
 export const signs = [
   {
     title: 'Aries',
@@ -20,6 +23,15 @@ export const signs = [
     modality: 'Cardinal',
     element: 'Fire',
     imageSrc: Aries,
+    planetaryRuler: 'Mars',
+    exaltedPlanet: 'Sun',
+    detrimentPlanet: 'Venus',
+    fallPlanet: 'Saturn',
+    oppositeSign: 'Libra',
+    associatedHouse: 'First',
+    dates: 'March 21 - April 19',
+    fullPageDescription:
+      'Bold and ambitious, Aries jumps headfirst into even the most challenging situations. This sign is characterized by its energy and determination but can also be impulsive and impatient. Aries is a leader with a competitive edge, always ready to take on a challenge.',
   },
   {
     title: 'Taurus',
@@ -27,6 +39,15 @@ export const signs = [
     modality: 'Fixed',
     element: 'Earth',
     imageSrc: Taurus,
+    planetaryRuler: 'Venus',
+    exaltedPlanet: 'Moon',
+    detrimentPlanet: 'Mars',
+    fallPlanet: 'Uranus',
+    oppositeSign: 'Scorpio',
+    associatedHouse: 'Second',
+    dates: 'April 20 - May 20',
+    fullPageDescription:
+      'Taurus is known for its practicality and reliability. This sign is grounded and stable, with a strong connection to the material world. Taurus is also sensual and enjoys the finer things in life.',
   },
   {
     title: 'Gemini ',
@@ -34,6 +55,15 @@ export const signs = [
     modality: 'Mutable',
     element: 'Air',
     imageSrc: Gemini,
+    planetaryRuler: 'Mercury',
+    exaltedPlanet: '-',
+    detrimentPlanet: 'Jupiter',
+    fallPlanet: '-',
+    oppositeSign: 'Sagittarius',
+    associatedHouse: 'Third',
+    dates: 'May 21 - June 20',
+    fullPageDescription:
+      'Gemini is known for its versatility and adaptability. This sign is curious and communicative, with a love of learning and sharing information. Gemini is also known for its quick wit and sense of humor.',
   },
   {
     title: 'Cancer',
@@ -41,6 +71,15 @@ export const signs = [
     modality: 'Cardinal',
     element: 'Water',
     imageSrc: Cancer,
+    planetaryRuler: 'Moon',
+    exaltedPlanet: 'Jupiter',
+    detrimentPlanet: 'Saturn',
+    fallPlanet: 'Mars',
+    oppositeSign: 'Capricorn',
+    associatedHouse: 'Fourth',
+    dates: 'June 21 - July 22',
+    fullPageDescription:
+      'Cancer is known for its emotional depth and nurturing nature. This sign is protective and caring, with a strong intuition and a deep connection to family and home. Cancer is also known for its moodiness and sensitivity.',
   },
   {
     title: 'Leo',
@@ -48,6 +87,15 @@ export const signs = [
     modality: 'Fixed',
     element: 'Fire',
     imageSrc: Leo,
+    planetaryRuler: 'Sun',
+    exaltedPlanet: 'Neptune',
+    detrimentPlanet: 'Saturn',
+    fallPlanet: 'Pluto',
+    oppositeSign: 'Aquarius',
+    associatedHouse: 'Fifth',
+    dates: 'July 23 - August 22',
+    fullPageDescription:
+      'Leo is known for its confidence and charisma. This sign is bold and dramatic, with a strong sense of self and a natural leadership ability. Leo is also generous and loyal, with a flair for the dramatic.',
   },
   {
     title: 'Virgo',
@@ -55,6 +103,15 @@ export const signs = [
     modality: 'Mutable',
     element: 'Earth',
     imageSrc: Virgo,
+    planetaryRuler: 'Mercury',
+    detrimentPlanet: 'Jupiter',
+    exaltedPlanet: 'Mercury',
+    fallPlanet: 'Venus',
+    oppositeSign: 'Pisces',
+    associatedHouse: 'Sixth',
+    dates: 'August 23 - September 22',
+    fullPageDescription:
+      'Virgo is known for its analytical and practical nature. This sign is detail-oriented and critical, with a strong sense of duty and a desire to be of service. Virgo is also modest and humble, with a keen eye for detail.',
   },
   {
     title: 'Libra',
@@ -62,6 +119,15 @@ export const signs = [
     modality: 'Cardinal',
     element: 'Air',
     imageSrc: Libra,
+    planetaryRuler: 'Venus',
+    detrimentPlanet: 'Mars',
+    exaltedPlanet: 'Saturn',
+    fallPlanet: 'Sun',
+    oppositeSign: 'Aries',
+    associatedHouse: 'Seventh',
+    dates: 'September 23 - October 22',
+    fullPageDescription:
+      'Libra is known for its diplomacy and charm. This sign is sociable and artistic, with a strong sense of fairness and justice. Libra is also indecisive and can struggle with making choices.',
   },
   {
     title: 'Scorpio',
@@ -69,6 +135,16 @@ export const signs = [
     modality: 'Fixed',
     element: 'Water',
     imageSrc: Scorpio,
+    planetaryRuler: 'Pluto',
+    traditionalPlanetaryRuler: 'Mars',
+    detrimentPlanet: 'Venus',
+    exaltedPlanet: 'Uranus',
+    fallPlanet: 'Moon',
+    oppositeSign: 'Taurus',
+    associatedHouse: 'Eighth',
+    dates: 'October 23 - November 21',
+    fullPageDescription:
+      'Scorpio is known for its intensity and passion. This sign is powerful and penetrating, with a deep and mysterious nature. Scorpio is also secretive and can be prone to jealousy and possessiveness.',
   },
   {
     title: 'Sagittarius',
@@ -77,6 +153,15 @@ export const signs = [
     modality: 'Mutable',
     element: 'Fire',
     imageSrc: Sagittarius,
+    planetaryRuler: 'Jupiter',
+    exaltedPlanet: '-',
+    detrimentPlanet: 'Mercury',
+    fallPlanet: '-',
+    oppositeSign: 'Gemini',
+    associatedHouse: 'Ninth',
+    dates: 'November 22 - December 21',
+    fullPageDescription:
+      'Sagittarius is known for its optimism and love of adventure. This sign is freedom-loving and philosophical, with a love of travel and new experiences. Sagittarius is also known for its bluntness and honesty.',
   },
   {
     title: 'Capricorn',
@@ -84,6 +169,15 @@ export const signs = [
     modality: 'Cardinal',
     element: 'Earth',
     imageSrc: Capricorn,
+    planetaryRuler: 'Saturn',
+    exaltedPlanet: 'Mars',
+    detrimentPlanet: 'Moon',
+    fallPlanet: 'Jupiter',
+    oppositeSign: 'Cancer',
+    associatedHouse: 'Tenth',
+    dates: 'December 22 - January 19',
+    fullPageDescription:
+      'Capricorn is known for its ambition and discipline. This sign is practical and cautious, with a strong sense of responsibility and a desire for security. Capricorn is also conservative and traditional, with a strong work ethic.',
   },
   {
     title: 'Aquarius',
@@ -91,6 +185,16 @@ export const signs = [
     modality: 'Fixed',
     element: 'Air',
     imageSrc: Aquarius,
+    planetaryRuler: 'Uranus',
+    traditionalPlanetaryRuler: 'Saturn',
+    exaltedPlanet: 'Saturn',
+    detrimentPlanet: 'Sun',
+    fallPlanet: 'Sun',
+    oppositeSign: 'Leo',
+    associatedHouse: 'Eleventh',
+    dates: 'January 20 - February 18',
+    fullPageDescription:
+      'Aquarius is known for its innovation and humanitarianism. This sign is intellectual and rebellious, with a strong sense of independence and a desire to make the world a better place. Aquarius is also detached and can be prone to eccentricity.',
   },
   {
     title: 'Pisces',
@@ -98,5 +202,15 @@ export const signs = [
     modality: 'Mutable',
     element: 'Water',
     imageSrc: Pisces,
+    planetaryRuler: 'Neptune',
+    traditionalPlanetaryRuler: 'Jupiter',
+    exaltedPlanet: 'Venus',
+    detrimentPlanet: 'Mercury',
+    fallPlanet: 'Mercury',
+    oppositeSign: 'Virgo',
+    associatedHouse: 'Twelfth',
+    dates: 'February 19 - March 20',
+    fullPageDescription:
+      'Pisces is known for its compassion and creativity. This sign is artistic and intuitive, with a deep connection to the spiritual world. Pisces is also sensitive and can be prone to escapism and idealism.',
   },
 ];
