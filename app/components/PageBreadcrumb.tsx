@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 
 export interface BreadcrumbArgs {
   id?: string;
-  params: { sign?: string };
+  params: { sign?: string; planet?: string };
   pathname: string;
   data?: any;
   handle: {
