@@ -45,6 +45,7 @@ export const sectionAreas = [
   },
   {
     sectionTitle: 'Planets',
+    path: '/planets',
     buttonRotation: '0.02',
     hoverImages: [
       {

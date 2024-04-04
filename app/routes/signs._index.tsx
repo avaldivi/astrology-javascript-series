@@ -73,7 +73,7 @@ const SignsIndex: React.FC<SignsIndexProps> = () => {
       <FilterContainer>
         <DropdownFilter groups={groups} onChange={handleDropdownChange} />
       </FilterContainer>
-      <DetailCard filteredSigns={filteredSigns} />
+      <DetailCard items={filteredSigns} />
     </>
   );
 };

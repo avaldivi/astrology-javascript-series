@@ -9,7 +9,7 @@ import { devices, breakpoints } from '~/utils/constants';
 
 interface SignShowProps {}
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = ({ params }) => {
   const [sign] = findSignByTitle(params.sign);
   return json({ sign });
 };
