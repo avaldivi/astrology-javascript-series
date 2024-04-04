@@ -23,6 +23,17 @@ import Sagittarius from './Sagittarius.svg';
 import Capricorn from './Capricorn.svg';
 import Aquarius from './Aquarius.svg';
 import Pisces from './Pisces.svg';
+import Sun from './planets/sun.svg';
+import Moon from './planets/moon.svg';
+import Mercury from './planets/mercury.svg';
+import Venus from './planets/venus.svg';
+import Mars from './planets/mars.svg';
+import Jupiter from './planets/jupiter.svg';
+import Saturn from './planets/saturn.svg';
+import Uranus from './planets/uranus.svg';
+import Neptune from './planets/neptune.svg';
+import Pluto from './planets/pluto.svg';
+import HouseWheel from './house-wheel.svg';
 
 export {
   signs,
@@ -50,4 +61,15 @@ export {
   Capricorn,
   Aquarius,
   Pisces,
+  Sun,
+  Moon,
+  Mercury,
+  Venus,
+  Mars,
+  Jupiter,
+  Saturn,
+  Uranus,
+  Neptune,
+  Pluto,
+  HouseWheel,
 };
