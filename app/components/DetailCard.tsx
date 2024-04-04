@@ -48,27 +48,31 @@ const ImageContainer = styled.div`
 `;
 
 interface DetailCardProps {
-  filteredSigns: {
+  items: {
     title: string;
     imageSrc: string;
     description: string;
   }[];
+  path?: string;
 }
 
-export const DetailCard: React.FC<DetailCardProps> = ({ filteredSigns }) => {
+export const DetailCard: React.FC<DetailCardProps> = ({
+  items,
+  path = 'signs',
+}) => {
   const navigate = useNavigate();
   return (
     <SignsWrapper>
-      {filteredSigns.map((sign) => {
+      {items.map((item) => {
         return (
-          <SignContainer key={sign.title}>
-            <h2>{sign.title}</h2>
+          <SignContainer key={item.title}>
+            <h2>{item.title}</h2>
             <ImageContainer>
-              <img src={sign.imageSrc} height='150px' alt={sign.title} />
+              <img src={item.imageSrc} height='150px' alt={item.title} />
             </ImageContainer>
-            <p>{sign.description}</p>
+            <p>{item.description}</p>
             <Button
-              onClick={() => navigate(`/signs/${sign.title.toLowerCase()}`)}
+              onClick={() => navigate(`/${path}/${item.title.toLowerCase()}`)}
             >
               View More
             </Button>
