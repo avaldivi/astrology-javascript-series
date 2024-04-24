@@ -10,7 +10,7 @@ export default function HousesWheel(props: HousesWheelProps) {
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(window.innerWidth);
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth - 500,
+    width: containerWidth < 600 ? 380 : window.innerWidth - 500,
     height: window.innerHeight,
   });
   const [scale, setScale] = useState(1);
@@ -48,21 +48,23 @@ export default function HousesWheel(props: HousesWheelProps) {
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
-        const containerWidth = containerRef.current?.offsetWidth;
-        const containerHeight = containerRef.current?.offsetHeight;
+        const containerWidth = containerRef.current.offsetWidth;
+        const containerHeight = containerRef.current.offsetHeight;
+
         const scaleWidth = containerWidth / dimensions.width;
         const scaleHeight = containerHeight / dimensions.height;
+        const additionalScaleFactor = containerWidth < 600 ? 0.63 : 1.4; // Scale down more if width < 600px
+
         const newScale =
           containerWidth < 600
-            ? Math.min(scaleWidth, scaleHeight) * 2
+            ? Math.min(scaleWidth, scaleHeight) * additionalScaleFactor
             : scaleWidth;
+
         setScale(newScale);
 
         const offsetX = -290 * newScale; // Maintain the x offset
         const offsetY = -200 * newScale; // Maintain the y offset
         setPosition({ x: offsetX, y: offsetY });
-
-        setContainerWidth(containerRef.current?.offsetWidth);
       }
     };
 
@@ -111,6 +113,12 @@ export default function HousesWheel(props: HousesWheelProps) {
                       setText(houseDetails(i + 1));
                     }
                   }}
+                  onTouchStart={() => {
+                    setHoverIndex(i);
+                    if (clickedIndex === -1) {
+                      setText(houseDetails(i + 1));
+                    }
+                  }}
                   onMouseLeave={() => {
                     setHoverIndex(-1);
                     // setText('Hover over a part');
@@ -122,6 +130,16 @@ export default function HousesWheel(props: HousesWheelProps) {
                       setClickedIndex(i);
                     }
                     if (clickedIndex === i) {
+                      setClickedIndex(-1);
+                      setText('Hover or click over a part');
+                    }
+                  }}
+                  onTouchEnd={() => {
+                    // This event can act similar to onClick
+                    if (clickedIndex !== i) {
+                      setClickedIndex(i);
+                      setText(houseDetails(i + 1));
+                    } else {
                       setClickedIndex(-1);
                       setText('Hover or click over a part');
                     }
