@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Outlet } from '@remix-run/react';
 import { styled } from 'styled-components';
 import { PageBreadcrumb } from '~/components/PageBreadcrumb';
-import { planets } from '~/utils/planets';
 
 interface planetsProps {}
 

@@ -71,7 +71,7 @@ export default function App() {
             colors: {
               primary: '#DCCCFD',
               secondary: '#FFD200',
-              tertiary: '#0000ff',
+              tertiary: '#E8E3F4',
             },
           }}
         >
