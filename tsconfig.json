@@ -8,6 +8,7 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "target": "ES2022",
+    "module": "esnext",
     "types": ["@testing-library/jest-dom"],
     "strict": true,
     "allowJs": true,
