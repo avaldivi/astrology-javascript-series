@@ -1,15 +1,23 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useTheme } from 'styled-components';
 import { Stage, Layer, Wedge, Text, Rect, Group } from 'react-konva';
-import { houseThemes } from '~/utils/houses';
+import HouseThemeDescription from './HouseThemeDescription.client';
+import { houseThemes, housePositionTitle } from '~/utils/houses';
 
 interface HousesWheelProps {}
 
+interface HouseThemeDetails {
+  title: string;
+  description: string;
+  otherTopics: string;
+  associatedSign: string;
+}
+
 export default function HousesWheel(props: HousesWheelProps) {
   const theme = useTheme();
-  const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(window.innerWidth);
-  const [dimensions, setDimensions] = useState({
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [containerWidth] = useState(window.innerWidth);
+  const [dimensions] = useState({
     width: containerWidth < 600 ? 380 : window.innerWidth - 500,
     height: window.innerHeight,
   });
@@ -18,19 +26,24 @@ export default function HousesWheel(props: HousesWheelProps) {
 
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [clickedIndex, setClickedIndex] = useState(-1);
-  const [text, setText] = useState(
-    'Hover over a part' || { title: '', description: '' }
-  );
+  const [text, setText] = useState<HouseThemeDetails | undefined>({
+    title: '',
+    description: '',
+    otherTopics: '',
+    associatedSign: '',
+  });
   const radius = 300;
   const x = 600;
   const y = 600;
 
-  const houseDetails = (index: number) =>
+  const findHouseThemeDetails = (
+    index: number
+  ): HouseThemeDetails | undefined =>
     houseThemes.find((houseTheme) => houseTheme.id === index);
 
   const segments = Array.from({ length: 12 }).map((_, index) => ({
     angle: 30,
-    rotation: 150 + 30 * -index,
+    rotation: 160 + 30 * -index,
   }));
 
   const returnFillColor = (i: number) => {
@@ -42,8 +55,6 @@ export default function HousesWheel(props: HousesWheelProps) {
       return theme.colors.tertiary;
     return theme.colors.primary;
   };
-
-  console.log('text', text);
 
   useEffect(() => {
     const updateSize = () => {
@@ -62,21 +73,33 @@ export default function HousesWheel(props: HousesWheelProps) {
 
         setScale(newScale);
 
-        const offsetX = -290 * newScale; // Maintain the x offset
-        const offsetY = -200 * newScale; // Maintain the y offset
+        const offsetX = -290 * newScale;
+        const offsetY = -200 * newScale;
         setPosition({ x: offsetX, y: offsetY });
       }
     };
 
     window.addEventListener('resize', updateSize);
-    updateSize(); // Initial resize
+    updateSize();
 
     return () => window.removeEventListener('resize', updateSize);
   }, [dimensions]);
 
-  const thresholdWidth = 600;
+  const onHandleHoverOrTap = (i: number) => {
+    setHoverIndex(i);
+    if (clickedIndex === -1) {
+      setText(findHouseThemeDetails(i + 1));
+    }
+  };
 
-  const layoutIsVertical = containerWidth < thresholdWidth;
+  const onHandleClick = (i: number) => {
+    if (clickedIndex !== i) {
+      setClickedIndex(i);
+      setText(findHouseThemeDetails(i + 1));
+    } else {
+      setClickedIndex(-1);
+    }
+  };
 
   return (
     <div
@@ -84,8 +107,6 @@ export default function HousesWheel(props: HousesWheelProps) {
       style={{ width: '100%', height: '100vh', overflow: 'hidden' }}
     >
       <Stage
-        // x={-290}
-        // y={-200}
         x={position.x}
         y={position.y}
         width={dimensions.width}
@@ -95,7 +116,6 @@ export default function HousesWheel(props: HousesWheelProps) {
       >
         <Layer>
           <Group x={0} y={0}>
-            <Rect fill='red' />
             {segments.map((segment, i) => (
               <>
                 <Wedge
@@ -107,47 +127,18 @@ export default function HousesWheel(props: HousesWheelProps) {
                   rotation={segment.rotation}
                   stroke='black'
                   fill={returnFillColor(i)}
-                  onMouseEnter={() => {
-                    setHoverIndex(i);
-                    if (clickedIndex === -1) {
-                      setText(houseDetails(i + 1));
-                    }
-                  }}
-                  onTouchStart={() => {
-                    setHoverIndex(i);
-                    if (clickedIndex === -1) {
-                      setText(houseDetails(i + 1));
-                    }
-                  }}
+                  onMouseEnter={() => onHandleHoverOrTap(i)}
+                  onTouchStart={() => onHandleHoverOrTap(i)}
                   onMouseLeave={() => {
                     setHoverIndex(-1);
-                    // setText('Hover over a part');
                   }}
-                  onClick={() => {
-                    setClickedIndex(i);
-                    setText(houseDetails(i + 1));
-                    if (clickedIndex !== i) {
-                      setClickedIndex(i);
-                    }
-                    if (clickedIndex === i) {
-                      setClickedIndex(-1);
-                      setText('Hover or click over a part');
-                    }
-                  }}
-                  onTouchEnd={() => {
-                    // This event can act similar to onClick
-                    if (clickedIndex !== i) {
-                      setClickedIndex(i);
-                      setText(houseDetails(i + 1));
-                    } else {
-                      setClickedIndex(-1);
-                      setText('Hover or click over a part');
-                    }
-                  }}
+                  onClick={() => onHandleClick(i)}
+                  onTouchEnd={() => onHandleClick(i)}
                 />
                 <Text
                   rotation={30}
                   fontFamily='Raleway'
+                  fontStyle={clickedIndex === i ? 'bold' : 'normal'}
                   x={
                     x +
                     (radius / 2) *
@@ -162,59 +153,22 @@ export default function HousesWheel(props: HousesWheelProps) {
                       Math.sin(
                         (segment.rotation + segment.angle / 2) * (Math.PI / 180)
                       ) -
-                    10
+                    20
                   }
-                  text={`${i + 1}th House`}
+                  text={housePositionTitle(i + 1)}
                 />
               </>
             ))}
           </Group>
 
-          <Group
-            x={layoutIsVertical ? -620 : -5} // Horizontal position change
-            y={layoutIsVertical ? 600 : 0} // Vertical stacking when needed
-          >
-            <Rect width={100} height={100} fill='blue' />
-            <Text
-              fontSize={40}
-              fontFamily='Shrikhand'
-              x={x + radius + 20}
-              y={y - 200}
-              width={450}
-              text={text?.title || ''}
-              align='center'
-            />
-            <Text
-              fontSize={20}
-              fontFamily='Raleway'
-              x={x + radius + 35}
-              y={y - 100}
-              text={text?.description || ''}
-              margin={10}
-              width={500}
-            />
-            <Text
-              fontSize={20}
-              fontFamily='Raleway'
-              x={x + radius + 35}
-              y={y}
-              text={text?.otherTopics || ''}
-              margin={10}
-              width={500}
-            />
-            {text?.associatedSign && (
-              <Text
-                fontSize={20}
-                fontFamily='Raleway'
-                x={x + radius + 35}
-                y={y + 60}
-                text={`Associated Sign: ${text?.associatedSign || ''}`}
-                margin={10}
-                width={500}
-                fontStyle='bold'
-              />
-            )}
-          </Group>
+          <HouseThemeDescription
+            layoutIsVertical={containerWidth < 600}
+            text={text}
+            containerWidth={containerWidth}
+            x={x}
+            y={y}
+            radius={radius}
+          />
         </Layer>
       </Stage>
     </div>
