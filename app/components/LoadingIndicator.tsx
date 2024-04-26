@@ -1,14 +1,12 @@
 import React from 'react';
 import { styled, keyframes } from 'styled-components';
 
-// Keyframes for rotation
 const rotateAnimation = keyframes`
   to {
     transform: rotate(1turn);
   }
 `;
 
-// Keyframes for dash
 const dashAnimation = keyframes`
   0% {
     stroke-dasharray: 1, 200;
@@ -24,7 +22,6 @@ const dashAnimation = keyframes`
   }
 `;
 
-// Styled spinner container
 const Spinner = styled.div`
   margin-top: -21px;
   position: absolute;
@@ -48,15 +45,23 @@ const Spinner = styled.div`
   }
 `;
 
+const LoadingIndicatorContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 interface LoadingIndicatorProps {}
 
 const LoadingIndicator: React.FC<LoadingIndicatorProps> = () => {
   return (
-    <Spinner>
-      <svg viewBox='25 25 50 50'>
-        <circle cx='50' cy='50' r='20' fill='none' className='path' />
-      </svg>
-    </Spinner>
+    <LoadingIndicatorContainer>
+      <Spinner>
+        <svg viewBox='25 25 50 50'>
+          <circle cx='50' cy='50' r='20' fill='none' className='path' />
+        </svg>
+      </Spinner>
+    </LoadingIndicatorContainer>
   );
 };
 
