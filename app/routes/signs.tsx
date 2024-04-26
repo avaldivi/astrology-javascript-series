@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from '@remix-run/react';
 import { styled } from 'styled-components';
+import PageHeader from '~/components/PageHeader';
 import { PageBreadcrumb } from '~/components/PageBreadcrumb';
 
 const SignsContainer = styled.div`
@@ -22,10 +23,13 @@ export const handle = {
 
 const Signs = () => {
   return (
-    <SignsContainer>
-      <PageBreadcrumb />
-      <Outlet />
-    </SignsContainer>
+    <>
+      <PageHeader />
+      <SignsContainer>
+        <PageBreadcrumb />
+        <Outlet />
+      </SignsContainer>
+    </>
   );
 };
 

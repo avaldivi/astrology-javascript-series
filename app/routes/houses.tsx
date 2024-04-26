@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Link, Outlet } from '@remix-run/react';
 import { styled } from 'styled-components';
+import PageHeader from '~/components/PageHeader';
+import LoadingIndicator from '~/components/LoadingIndicator';
 import { PageBreadcrumb } from '~/components/PageBreadcrumb';
 
 interface HousesProps {}
@@ -16,23 +18,14 @@ const HousesContainer = styled.div`
   min-height: 100vh;
 `;
 
-const PageTitleContainer = styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  h1 {
-    margin: 12px;
-    line-height: 20px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-const LazyHousesWheel = lazy(() => import('~/components/HousesWheel.client'));
+const LazyHousesWheel = lazy(() => {
+  return Promise.all([
+    import('~/components/HousesWheel.client'),
+    delay(2000),
+  ]).then(([moduleExports]) => moduleExports);
+});
 
 export const handle = {
   breadcrumbLink: () => <Link to='/houses'>Houses</Link>,
@@ -42,19 +35,10 @@ export const handle = {
 export default function Houses(props: HousesProps) {
   return (
     <>
-      <PageTitleContainer>
-        <center>
-          <h1>
-            🔮 Astrology <br />
-            <span>&amp;</span> <br />
-            {`<`}Javascript{`/>`} <br />
-            Series
-          </h1>
-        </center>
-      </PageTitleContainer>
+      <PageHeader />
       <HousesContainer>
         <PageBreadcrumb />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingIndicator />}>
           <LazyHousesWheel />
         </Suspense>
       </HousesContainer>

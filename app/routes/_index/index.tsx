@@ -96,7 +96,7 @@ export default function Index() {
               <h1>
                 🔮 Astrology <br />
                 <span>&amp;</span> <br />
-                {`<`}Javascript{`/>`} <br />
+                {`<`}JavaScript{`/>`} <br />
                 Series
               </h1>
             </div>
