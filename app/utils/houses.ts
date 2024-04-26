@@ -99,3 +99,21 @@ export const houseThemes = [
     associatedSign: 'Pisces',
   },
 ];
+
+export const housePositionTitle = (i: number) => {
+  let ordinalSuffix;
+  switch (i) {
+    case 1:
+      ordinalSuffix = 'st';
+      break;
+    case 2:
+      ordinalSuffix = 'nd';
+      break;
+    case 3:
+      ordinalSuffix = 'rd';
+      break;
+    default:
+      ordinalSuffix = 'th';
+  }
+  return `${i}${ordinalSuffix} House`;
+};
