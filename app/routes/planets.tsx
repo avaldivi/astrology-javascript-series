@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, Outlet } from '@remix-run/react';
 import { styled } from 'styled-components';
+import PageHeader from '~/components/PageHeader';
 import { PageBreadcrumb } from '~/components/PageBreadcrumb';
-import { planets } from '~/utils/planets';
 
 interface planetsProps {}
 
@@ -23,10 +23,13 @@ export const handle = {
 
 const Planets: React.FC<planetsProps> = () => {
   return (
-    <PlanetsContainer>
-      <PageBreadcrumb />
-      <Outlet />
-    </PlanetsContainer>
+    <>
+      <PageHeader />
+      <PlanetsContainer>
+        <PageBreadcrumb />
+        <Outlet />
+      </PlanetsContainer>
+    </>
   );
 };
 

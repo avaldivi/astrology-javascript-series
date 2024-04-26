@@ -5,11 +5,7 @@ import { DetailCard } from '~/components/DetailCard';
 interface PlanetsIndexProps {}
 
 const PlanetsIndex: React.FC<PlanetsIndexProps> = () => {
-  return (
-    <div>
-      <DetailCard items={planets} path='planets' />
-    </div>
-  );
+  return <DetailCard items={planets} path='planets' />;
 };
 
 export default PlanetsIndex;
