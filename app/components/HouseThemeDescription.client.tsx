@@ -30,6 +30,8 @@ const HouseThemeDescription: React.FC<HouseThemeDescriptionProps> = ({
       y: y - 200,
       text: text?.title || '',
       align: 'center',
+      padding: 20,
+      width: 460,
     },
     {
       fontSize: 20,
@@ -38,7 +40,7 @@ const HouseThemeDescription: React.FC<HouseThemeDescriptionProps> = ({
       y: y - 100,
       text: text?.description || '',
       margin: 10,
-      width: 500,
+      width: 485,
     },
     {
       fontSize: 20,
@@ -47,7 +49,7 @@ const HouseThemeDescription: React.FC<HouseThemeDescriptionProps> = ({
       y: y,
       text: text?.otherTopics || '',
       margin: 10,
-      width: 500,
+      width: 485,
     },
     {
       fontSize: 20,
