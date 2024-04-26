@@ -23,7 +23,6 @@ const dashAnimation = keyframes`
 `;
 
 const Spinner = styled.div`
-  margin-top: -21px;
   position: absolute;
   text-align: center;
   top: 50%;
