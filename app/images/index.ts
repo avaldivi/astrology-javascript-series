@@ -34,6 +34,9 @@ import Uranus from './planets/uranus.svg';
 import Neptune from './planets/neptune.svg';
 import Pluto from './planets/pluto.svg';
 import HouseWheel from './house-wheel.svg';
+import Twitch from './social/twitch.svg';
+import LinkedIn from './social/linkedin.svg';
+import Twitter from './social/x.svg';
 
 export {
   signs,
@@ -72,4 +75,7 @@ export {
   Neptune,
   Pluto,
   HouseWheel,
+  Twitch,
+  LinkedIn,
+  Twitter,
 };

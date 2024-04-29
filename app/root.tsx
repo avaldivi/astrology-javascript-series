@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  h1, h2 {
+  h1, h2, h3 {
     font-family: "Shrikhand", serif;
     font-weight: 400;
     font-style: normal;
