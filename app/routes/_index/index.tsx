@@ -147,7 +147,7 @@ export default function Index() {
               </div>
               <div>
                 <a
-                  href='https://www.x./com/driannavaldivia/'
+                  href='https://www.x.com/driannavaldivia/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
