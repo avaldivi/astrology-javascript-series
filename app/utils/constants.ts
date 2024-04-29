@@ -84,6 +84,7 @@ export const sectionAreas = [
   },
   {
     sectionTitle: 'Aspects',
+    path: '/aspects',
     buttonRotation: '0.00',
     hoverImages: [
       {
