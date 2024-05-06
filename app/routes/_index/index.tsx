@@ -1,6 +1,12 @@
 import type { MetaFunction } from '@vercel/remix';
 import { styled } from 'styled-components';
-import { sparkles, celestialDoses } from '~/images';
+import {
+  sparkles,
+  celestialDoses,
+  Twitch as TwitchIcon,
+  Twitter as TwitterIcon,
+  LinkedIn as LinkedInIcon,
+} from '~/images';
 import SectionAccessArea from '~/components/SectionAccessArea';
 import { devices, sectionAreas } from '../../utils/constants';
 
@@ -69,7 +75,8 @@ const PageTitleContainer = styled.div`
 
     @media only screen and ${devices.md} {
       font-size: 75px;
-      line-height: 55px;
+      line-height: 50px;
+      letter-spacing: -3px;
     }
   }
 `;
@@ -79,6 +86,20 @@ const SectionTitlesContainer = styled.div`
   flex-wrap: wrap;
   max-width: 50%;
   justify-content: center;
+`;
+
+const SectionTitle = styled.h3`
+  margin-bottom: -22px;
+`;
+
+const SocialPlatformIcons = styled.div`
+  display: flex;
+  margin: 10px;
+
+  img {
+    margin-top: 5px;
+    margin-right: 15px;
+  }
 `;
 
 export const handle = {
@@ -106,12 +127,62 @@ export default function Index() {
               width='150px'
               alt='Sparkle divider between header and logo'
             />
-            <img
-              src={celestialDoses}
-              height='100px'
-              width='300px'
-              alt='Celestial Doses logo'
-            />
+            <h2>Weekly Livestream</h2>
+            <div>📅 Every Wednesday</div>
+            <div>🕛 1pm EST / 10am PST</div>
+            <SocialPlatformIcons>
+              <div>
+                <a
+                  href='https://www.twitch.tv/adriannavaldivia/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <img
+                    width={20}
+                    height={20}
+                    src={TwitchIcon}
+                    alt='Twitch Icon'
+                  />
+                </a>
+              </div>
+              <div>
+                <a
+                  href='https://www.x.com/driannavaldivia/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <img
+                    width={20}
+                    height={20}
+                    src={TwitterIcon}
+                    alt='Twitter Icon'
+                  />
+                </a>
+              </div>
+              <div>
+                <a
+                  href='https://www.linkedin.com/in/adriannavaldivia/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <img
+                    width={20}
+                    height={20}
+                    src={LinkedInIcon}
+                    alt='LinkedIn Icon'
+                  />
+                </a>
+              </div>
+            </SocialPlatformIcons>
+            <>
+              <SectionTitle>Presented by</SectionTitle>
+              <img
+                src={celestialDoses}
+                height='100px'
+                width='300px'
+                alt='Celestial Doses logo'
+              />
+            </>
           </PageTitleContainer>
           <SectionTitlesContainer>
             {sectionAreas.map((section) => (

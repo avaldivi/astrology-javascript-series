@@ -44,6 +44,9 @@ import OppositionSymbol from './aspects/opposite-symbol.svg';
 import OppositionAspect from './aspects/opposite-aspect.svg';
 import ConjunctionSymbol from './aspects/conjunction-symbol.svg';
 import ConjunctionAspect from './aspects/conjunction-aspect.svg';
+import Twitch from './social/twitch.svg';
+import LinkedIn from './social/linkedin.svg';
+import Twitter from './social/x.svg';
 
 export {
   signs,
@@ -92,4 +95,7 @@ export {
   OppositionAspect,
   ConjunctionSymbol,
   ConjunctionAspect,
+  Twitch,
+  LinkedIn,
+  Twitter,
 };
