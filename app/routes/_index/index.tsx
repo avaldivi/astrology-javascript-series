@@ -129,7 +129,7 @@ export default function Index() {
             />
             <h2>Weekly Livestream</h2>
             <div>📅 Every Wednesday</div>
-            <div>🕛 12pm EST / 9am PST</div>
+            <div>🕛 1pm EST / 10am PST</div>
             <SocialPlatformIcons>
               <div>
                 <a
