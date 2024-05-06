@@ -34,6 +34,16 @@ import Uranus from './planets/uranus.svg';
 import Neptune from './planets/neptune.svg';
 import Pluto from './planets/pluto.svg';
 import HouseWheel from './house-wheel.svg';
+import SextileSymbol from './aspects/sextile-symbol.svg';
+import SextileAspect from './aspects/sextile-aspect.svg';
+import SquareSymbol from './aspects/square-symbol.svg';
+import SquareAspect from './aspects/square-aspect.svg';
+import TrineSymbol from './aspects/trine-symbol.svg';
+import TrineAspect from './aspects/trine-aspect.svg';
+import OppositionSymbol from './aspects/opposite-symbol.svg';
+import OppositionAspect from './aspects/opposite-aspect.svg';
+import ConjunctionSymbol from './aspects/conjunction-symbol.svg';
+import ConjunctionAspect from './aspects/conjunction-aspect.svg';
 import Twitch from './social/twitch.svg';
 import LinkedIn from './social/linkedin.svg';
 import Twitter from './social/x.svg';
@@ -75,6 +85,16 @@ export {
   Neptune,
   Pluto,
   HouseWheel,
+  SextileSymbol,
+  SextileAspect,
+  SquareSymbol,
+  SquareAspect,
+  TrineSymbol,
+  TrineAspect,
+  OppositionSymbol,
+  OppositionAspect,
+  ConjunctionSymbol,
+  ConjunctionAspect,
   Twitch,
   LinkedIn,
   Twitter,

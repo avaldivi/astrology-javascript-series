@@ -32,6 +32,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
   }
+
+  button {
+    font-family: "Raleway", sans-serif;
+  }
 `;
 
 export default function App() {
