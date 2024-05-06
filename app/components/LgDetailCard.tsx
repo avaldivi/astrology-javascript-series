@@ -66,7 +66,6 @@ export const LgDetailCard: React.FC<LgDetailCardProps> = ({
   items,
   path = 'aspects',
 }) => {
-  const navigate = useNavigate();
   return (
     <SignsWrapper>
       <SignContainer>
@@ -75,7 +74,10 @@ export const LgDetailCard: React.FC<LgDetailCardProps> = ({
           return (
             <ItemWrapper key={item.title}>
               <h3>{item.title}</h3>
-              <Link to={`/${path}/${aspect}#details`} preventScrollReset>
+              <Link
+                to={`/${path}/${aspect}#scroll`}
+                preventScrollReset
+              >
                 <ImageContainer>
                   <img
                     src={item.symbolImgSrc}

@@ -39,32 +39,12 @@ export const loader: LoaderFunction = ({ params }) => {
 
 const AspectShow: React.FC<AspectShowProps> = () => {
   const { aspect } = useLoaderData<typeof loader>();
-  const [searchParams] = useSearchParams();
-  const scrollToRef = useRef(null);
-
-  useEffect(() => {
-    const shouldScroll = searchParams.get('scrollTo');
-    if (shouldScroll === aspect.title.toLowerCase() && scrollToRef.current) {
-      const scroll = () => {
-        const elementTop = scrollToRef.current.offsetTop;
-        const additionalOffset = 100; // Adjust as needed
-        window.scrollTo({
-          top: elementTop + additionalOffset,
-          behavior: 'smooth',
-        });
-      };
-      scroll();
-
-      window.addEventListener('resize', scroll);
-      return () => window.removeEventListener('resize', scroll);
-    }
-  }, [searchParams, aspect.title]);
 
   return (
-    <AspectShowContainer>
+    <AspectShowContainer id='scroll'>
       <h2>{aspect.title}</h2>
-      <AspectDetailsWrapper id='details'>
-        <img ref={scrollToRef} src={aspect.aspectImgSrc} alt={aspect.title} />
+      <AspectDetailsWrapper>
+        <img src={aspect.aspectImgSrc} alt={aspect.title} />
         <AspectDetails>
           {aspect.description.map((paragraph: string, index: number) => (
             <p key={index}>{paragraph}</p>

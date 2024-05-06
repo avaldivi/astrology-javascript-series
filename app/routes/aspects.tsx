@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { json, LoaderFunction } from '@remix-run/node';
 import type { ActionFunctionArgs } from '@remix-run/node';
 import {
