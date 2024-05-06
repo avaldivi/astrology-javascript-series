@@ -89,3 +89,42 @@ export const MAJOR_ASPECTS = [
     ],
   },
 ];
+
+const MINOR_ASPECTS = [
+  {
+    title: 'Quincunx',
+    imageSrc: '',
+    description:
+      'When two planets are 150 degrees apart, they are in quincunx. This aspect can create a sense of unease and discomfort, but it can also be a source of growth and learning.',
+  },
+  {
+    title: 'Semi-Sextile',
+    imageSrc: '',
+    description:
+      'When two planets are 30 degrees apart, they are in semi-sextile. This aspect is considered harmonious and can indicate opportunities for growth and development.',
+  },
+  {
+    title: 'Semi-Square',
+    imageSrc: '',
+    description:
+      'When two planets are 45 degrees apart, they are in semi-square. This aspect can create tension and challenges, but it can also be a source of motivation and growth.',
+  },
+  {
+    title: 'Quintile',
+    imageSrc: '',
+    description:
+      'When two planets are 72 degrees apart, they are in quintile. This aspect can indicate creativity and inspiration, and it can be a source of growth and development.',
+  },
+  {
+    title: 'Biquintile',
+    imageSrc: '',
+    description:
+      'When two planets are 144 degrees apart, they are in biquintile. This aspect can indicate creativity and inspiration, and it can be a source of growth and development.',
+  },
+  {
+    title: 'Septile',
+    imageSrc: '',
+    description:
+      'When two planets are 51.4286 degrees apart, they are in septile. This aspect can indicate creativity and inspiration, and it can be a source of growth and development.',
+  },
+];

@@ -1,4 +1,3 @@
-import { useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { json, LoaderFunction } from '@remix-run/node';
 import { useLoaderData, useSearchParams } from '@remix-run/react';
